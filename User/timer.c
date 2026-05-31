@@ -10,6 +10,7 @@
 
 #include "lpc17xx_timer.h"    // bibliotheque de gestion des timers
 #include "lpc17xx_pinsel.h"   // configuration du role des broches
+#include "global.h"
 
 //-----------------------------------------------------------//
 // InitTimer : configure le Timer 0 pour declencher une interruption
@@ -67,10 +68,13 @@ void InitTimer() {
 //   la base de temps (compter les 10 ms, scruter l'ecran tactile P0.19, lever un drapeau...).
 //-----------------------------------------------------------//
 void TIMER0_IRQHandler() {
+    // Ne dois jamais faire de tache longue, elle doit up un flag comme une vairbel globale ?
 
-	int i = 0;                            // (code de test, sans effet : variable locale perdue a chaque appel)
-
-	i = i + 1;                            // a remplacer par le vrai traitement periodique a faire toutes les 10 ms
+    compteur10ms++;                 // variable globale, +1 toutes les 10 ms
+    if (compteur10ms >= 100) {       // 50 x 10 ms = 500 ms / ex 1000 �a sera tout les 10 secondes
+        compteur10ms = 0;
+        flagTest = !flagTest;       // 
+    }
 
 	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT); // OBLIGATOIRE : efface le drapeau d'interruption,
 	                                            // sinon le processeur croit que l'interruption est encore active

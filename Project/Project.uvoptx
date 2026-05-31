@@ -285,6 +285,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>montype</ItemText>
         </Ww>
+        <Ww>
+          <count>26</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>compteur10ms</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

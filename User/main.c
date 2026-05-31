@@ -33,6 +33,7 @@
 int main(void)
 {
 	  int n;                            // variable pour recuperer le retour de sprintf (longueur du texte)
+	  int couleurAffichee = -1;         // memorise la couleur deja affichee (-1 = rien dessine encore)
 
 	  // Init(); // init variables globales et pinsel pour IT => a faire
 
@@ -41,9 +42,9 @@ int main(void)
 		// --- petit exemple d'affichage : un texte et quelques carres de couleur ---
 	  n=sprintf(chaine,"Mon super texte      ");          // prepare le texte dans la variable globale "chaine"
 	  LCD_write_english_string (32,30,chaine,White,Blue); // affiche le texte (blanc sur fond bleu) en (32,30)
-	  dessiner_rect(10,60,110,110,2,1,Black,Yellow);      // carre jaune, bord noir
-	  dessiner_rect(120,60,110,110,2,1,Black,Green);      // carre vert
-	  dessiner_rect(10,170,110,110,2,1,Black,Blue);       // carre bleu
+	  //dessiner_rect(10,60,110,110,2,1,Black,Yellow);      // carre jaune, bord noir
+	  //dessiner_rect(120,60,110,110,2,1,Black,Green);      // carre vert
+	  //dessiner_rect(10,170,110,110,2,1,Black,Blue);       // carre bleu
 	  //dessiner_rect(120,170,110,110,2,1,Black,Red);     // carre rouge (desactive)
 
 	  touch_init();                     // initialise la dalle tactile (a laisser seulement si on utilise le tactile)
@@ -53,7 +54,19 @@ int main(void)
 
 		EcritureMemoire(2000,20);         // test : ecrit la valeur 20 a l'adresse 2000 de la memoire
 
-    while(1)  ;                         // boucle infinie : le programme ne se termine jamais
+    while(1) {
+
+        if (flagTest != couleurAffichee) {       // la couleur a-t-elle change ?
+            if (flagTest == 1) {
+                dessiner_rect(120,170,110,110,2,1,Black,Red);
+            } else {
+                dessiner_rect(120,170,110,110,2,1,Black,Blue);
+            }
+            
+        couleurAffichee = flagTest;          // on memorise ce qu'on vient d'afficher
+        }
+
+    }  ;                         // boucle infinie : le programme ne se termine jamais
 	// pour l'instant, le main fait juste quelques inits ... a vous d'ecrire le reste
 
 	}
