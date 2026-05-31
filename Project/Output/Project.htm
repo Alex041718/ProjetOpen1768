@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Output\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun May 31 16:55:57 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun May 31 20:35:23 2026
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -457,7 +457,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -498,8 +498,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_GetPointer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIO_SetDir
 </UL>
@@ -509,8 +509,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_GetPointer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIO_SetValue
 </UL>
@@ -520,16 +520,19 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_GetPointer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIO_ClearValue
 </UL>
 
-<P><STRONG><a name="[4f]"></a>GPIO_ReadValue</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, lpc17xx_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_GetPointer
+<P><STRONG><a name="[4f]"></a>GPIO_ReadValue</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, lpc17xx_gpio.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_ReadValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_GetPointer
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER0_IRQHandler
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIO_ReadValue
 </UL>
 
@@ -553,7 +556,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetDir
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
 </UL>
 
 <P><STRONG><a name="[51]"></a>FIO_SetValue</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lpc17xx_gpio.o(.text))
@@ -561,7 +564,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
 </UL>
 
 <P><STRONG><a name="[52]"></a>FIO_ClearValue</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lpc17xx_gpio.o(.text), UNUSED)
@@ -639,7 +642,7 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_ResistorMode
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_PinFunc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitMemoire
@@ -723,7 +726,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLKPWR_ConfigPPWR
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
 </UL>
 
 <P><STRONG><a name="[80]"></a>SSP_DeInit</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, lpc17xx_ssp.o(.text), UNUSED)
@@ -739,8 +742,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_ReadWrite
 </UL>
 
-<P><STRONG><a name="[bf]"></a>SSP_ConfigStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, lpc17xx_ssp.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
+<P><STRONG><a name="[c0]"></a>SSP_ConfigStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, lpc17xx_ssp.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
 </UL>
 
 <P><STRONG><a name="[82]"></a>SSP_Cmd</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, lpc17xx_ssp.o(.text))
@@ -748,7 +751,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_failed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
 </UL>
 
 <P><STRONG><a name="[83]"></a>SSP_LoopBackCmd</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, lpc17xx_ssp.o(.text), UNUSED)
@@ -782,7 +785,7 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_SendData
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_GetDataSize
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
 </UL>
 
 <P><STRONG><a name="[88]"></a>SSP_GetStatus</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, lpc17xx_ssp.o(.text), UNUSED)
@@ -905,14 +908,16 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_getNum
 </UL>
 
-<P><STRONG><a name="[41]"></a>main</STRONG> (Thumb, 134 bytes, Stack size 24 bytes, main.o(.text))
+<P><STRONG><a name="[41]"></a>main</STRONG> (Thumb, 178 bytes, Stack size 24 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = main &rArr; InitTimer &rArr; TIM_Init &rArr; converUSecToVal &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_rect
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_rect
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitMemoire
@@ -963,92 +968,93 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetIntStatus
 </UL>
 
-<P><STRONG><a name="[ad]"></a>rw_data_prepare</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[af]"></a>rw_data_prepare</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = rw_data_prepare &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 </UL>
 
-<P><STRONG><a name="[af]"></a>write_data</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[b1]"></a>write_data</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = write_data &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_send
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_send
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 </UL>
 
 <P><STRONG><a name="[102]"></a>lcd_getdeviceid</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ili_lcd_general.o(.text), UNUSED)
 
-<P><STRONG><a name="[b9]"></a>BGR2RGB</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<P><STRONG><a name="[ba]"></a>BGR2RGB</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
 </UL>
 
-<P><STRONG><a name="[b2]"></a>lcd_SetCursor</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[b4]"></a>lcd_SetCursor</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 </UL>
 
-<P><STRONG><a name="[b4]"></a>lcd_read_gram</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[b6]"></a>lcd_read_gram</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = lcd_read_gram &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
 </UL>
 
-<P><STRONG><a name="[b6]"></a>lcd_clear</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[ac]"></a>lcd_clear</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = lcd_clear &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b7]"></a>lcd_data_bus_test</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[b8]"></a>lcd_data_bus_test</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = lcd_data_bus_test &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
 
-<P><STRONG><a name="[b8]"></a>lcd_gram_test</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[b9]"></a>lcd_gram_test</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = lcd_gram_test &rArr; lcd_read_gram &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BGR2RGB
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BGR2RGB
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
@@ -1056,24 +1062,24 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>lcd_Initializtion</STRONG> (Thumb, 2156 bytes, Stack size 40 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = lcd_Initializtion &rArr; lcd_gram_test &rArr; lcd_read_gram &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_port_init
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[bb]"></a>LCD_write_english</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, lcd_api.o(.text))
+<P><STRONG><a name="[bc]"></a>LCD_write_english</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, lcd_api.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = LCD_write_english &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 </UL>
@@ -1081,45 +1087,45 @@ Global Symbols
 <P><STRONG><a name="[a6]"></a>LCD_write_english_string</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, lcd_api.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = LCD_write_english_string &rArr; LCD_write_english &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[bc]"></a>dessiner_ligne</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, affichagelcd.o(.text))
+<P><STRONG><a name="[bd]"></a>dessiner_ligne</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, affichagelcd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = dessiner_ligne &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_rect
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_rect
 </UL>
 
-<P><STRONG><a name="[ab]"></a>dessiner_rect</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, affichagelcd.o(.text))
+<P><STRONG><a name="[ad]"></a>dessiner_rect</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, affichagelcd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = dessiner_rect &rArr; dessiner_ligne &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dessiner_ligne
 </UL>
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[bd]"></a>SPI_WriteByte</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, touch_panel.o(.text))
+<P><STRONG><a name="[be]"></a>SPI_WriteByte</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, touch_panel.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = SPI_WriteByte &rArr; SSP_ReadWrite &rArr; SSP_SendData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_ReadWrite
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_debug
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 </UL>
 
-<P><STRONG><a name="[be]"></a>spi1_init</STRONG> (Thumb, 102 bytes, Stack size 48 bytes, touch_panel.o(.text))
+<P><STRONG><a name="[bf]"></a>spi1_init</STRONG> (Thumb, 102 bytes, Stack size 48 bytes, touch_panel.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = spi1_init &rArr; SSP_Init &rArr; setSSPclock &rArr; CLKPWR_GetPCLK
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_Cmd
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_ConfigStructInit
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_ConfigStructInit
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SSP_Init
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PINSEL_ConfigPin
 </UL>
@@ -1129,8 +1135,8 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>touch_init</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, touch_panel.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = touch_init &rArr; spi1_init &rArr; SSP_Init &rArr; setSSPclock &rArr; CLKPWR_GetPCLK
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi1_init
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PINSEL_ConfigPin
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_IntCmd
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClearValue
@@ -1140,9 +1146,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c0]"></a>touch_debug</STRONG> (Thumb, 298 bytes, Stack size 112 bytes, touch_panel.o(.text), UNUSED)
+<P><STRONG><a name="[c1]"></a>touch_debug</STRONG> (Thumb, 298 bytes, Stack size 112 bytes, touch_panel.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadValue
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClearValue
@@ -1150,11 +1156,15 @@ Global Symbols
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetDir
 </UL>
 
-<P><STRONG><a name="[c1]"></a>touch_read</STRONG> (Thumb, 224 bytes, Stack size 72 bytes, touch_panel.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
+<P><STRONG><a name="[ab]"></a>touch_read</STRONG> (Thumb, 224 bytes, Stack size 72 bytes, touch_panel.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = touch_read &rArr; SPI_WriteByte &rArr; SSP_ReadWrite &rArr; SSP_SendData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClearValue
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetValue
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetDir
+</UL>
+<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[a8]"></a>InitMemoire</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, memoire.o(.text))
@@ -1190,10 +1200,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f]"></a>TIMER0_IRQHandler</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, timer.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIMER0_IRQHandler &rArr; TIM_ClearIntPending
+<P><STRONG><a name="[f]"></a>TIMER0_IRQHandler</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, timer.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = TIMER0_IRQHandler &rArr; TIM_ClearIntPending
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearIntPending
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadValue
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
@@ -1280,48 +1291,48 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
 </UL>
 
-<P><STRONG><a name="[b0]"></a>lcd_send</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ili_lcd_general.o(i.lcd_send))
-<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<P><STRONG><a name="[b2]"></a>lcd_send</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ili_lcd_general.o(i.lcd_send))
+<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
 </UL>
 
-<P><STRONG><a name="[b5]"></a>read_data</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, ili_lcd_general.o(i.read_data))
+<P><STRONG><a name="[b7]"></a>read_data</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, ili_lcd_general.o(i.read_data))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = read_data &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_read_gram
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
 
-<P><STRONG><a name="[b1]"></a>wait_delay</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ili_lcd_general.o(i.wait_delay))
+<P><STRONG><a name="[b3]"></a>wait_delay</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ili_lcd_general.o(i.wait_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = wait_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_data
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
 </UL>
 
-<P><STRONG><a name="[ae]"></a>write_cmd</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, ili_lcd_general.o(i.write_cmd))
+<P><STRONG><a name="[b0]"></a>write_cmd</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, ili_lcd_general.o(i.write_cmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_send
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_delay
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_send
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_reg
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
 
-<P><STRONG><a name="[b3]"></a>write_reg</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, ili_lcd_general.o(i.write_reg))
+<P><STRONG><a name="[b5]"></a>write_reg</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, ili_lcd_general.o(i.write_reg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_gram_test
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data_bus_test
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_SetCursor
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
 <P>
@@ -1443,11 +1454,11 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_IntCmd
 </UL>
 
-<P><STRONG><a name="[ba]"></a>delay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[bb]"></a>delay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
 </UL>
 
-<P><STRONG><a name="[ac]"></a>lcd_port_init</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
+<P><STRONG><a name="[ae]"></a>lcd_port_init</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ili_lcd_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = lcd_port_init &rArr; FIO_SetDir &rArr; GPIO_SetDir
 </UL>
 <BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIO_SetValue

@@ -11,6 +11,7 @@
 #include "lpc17xx_timer.h"    // bibliotheque de gestion des timers
 #include "lpc17xx_pinsel.h"   // configuration du role des broches
 #include "global.h"
+#include "touch\touch_panel.h"
 
 //-----------------------------------------------------------//
 // InitTimer : configure le Timer 0 pour declencher une interruption
@@ -67,13 +68,28 @@ void InitTimer() {
 //   Pour l'instant elle ne fait rien d'utile ; c'est ici qu'on mettra plus tard
 //   la base de temps (compter les 10 ms, scruter l'ecran tactile P0.19, lever un drapeau...).
 //-----------------------------------------------------------//
-void TIMER0_IRQHandler() {
+void TIMER0_IRQHandler() { // toute les 10 ms
     // Ne dois jamais faire de tache longue, elle doit up un flag comme une vairbel globale ?
 
+    static int dejaAppuye = 0;        // memorise l'etat precedent (declaration EN PREMIER, regle C90)
+
     compteur10ms++;                 // variable globale, +1 toutes les 10 ms
+
+
+    //Touch
+    // dans l'IRQ : ne lever le flag qu'au moment ou le doigt SE POSE
+    
+    if (TP_DOWN()) {
+        if (!dejaAppuye) flagTouch = 1;   // front : on vient juste de toucher
+        dejaAppuye = 1;
+    } else {
+        dejaAppuye = 0;               // doigt relache
+    }
+
+
     if (compteur10ms >= 100) {       // 50 x 10 ms = 500 ms / ex 1000 �a sera tout les 10 secondes
         compteur10ms = 0;
-        flagTest = !flagTest;       // 
+        flagColor = !flagColor;       // 
     }
 
 	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT); // OBLIGATOIRE : efface le drapeau d'interruption,

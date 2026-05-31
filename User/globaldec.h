@@ -7,7 +7,12 @@
 
 char chaine[30]; // buffer pour l'affichage sur le LCD
 uint16_t touch_x, touch_y ;
-volatile int flagTest;
+
+// FLAG
+volatile int flagColor;
+volatile int flagTouch;
+
+
 volatile int compteur10ms ;
 
 

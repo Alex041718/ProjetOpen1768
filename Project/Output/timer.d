@@ -10,3 +10,8 @@
 .\output\timer.o: ..\Libraries\LCP1768_StdPeriph_Driver\include\lpc17xx_pinsel.h
 .\output\timer.o: ..\User\global.h
 .\output\timer.o: ..\User\constantes.h
+.\output\timer.o: ..\User\touch\touch_panel.h
+.\output\timer.o: ..\Libraries\LCP1768_StdPeriph_Driver\include\lpc17xx_libcfg_default.h
+.\output\timer.o: ..\Libraries\LCP1768_StdPeriph_Driver\include\lpc17xx_gpio.h
+.\output\timer.o: ..\User\touch\ili_lcd_general.h
+.\output\timer.o: ..\User\touch\lcd_api.h
