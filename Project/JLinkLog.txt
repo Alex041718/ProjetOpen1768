@@ -1,0 +1,72 @@
+T2530 002:623.782   SEGGER J-Link V9.46 Log File
+T2530 002:623.865   DLL Compiled: May 27 2026 12:18:17
+T2530 002:623.876   Logging started @ 2026-05-31 12:13
+T2530 002:623.881   Process: C:\Keil_v5\UV4\UV4.exe
+T2530 002:623.894 - 81.504ms 
+T2530 002:623.923 JLINK_SetWarnOutHandler(...)
+T2530 002:623.939 - 0.017ms 
+T2530 002:623.951 JLINK_OpenEx(...)
+T2530 002:631.099   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T2530 002:633.744   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T2530 002:633.879   Decompressing FW timestamp took 104 us
+T2530 002:642.249   Hardware: V9.30
+T2530 002:642.266   S/N: 269306871
+T2530 002:642.275   OEM: SEGGER-EDU
+T2530 002:642.283   Feature(s): FlashBP, GDB
+T2530 002:646.677   Bootloader: (FW returned invalid version)
+T2530 002:648.450   TELNET listener socket opened on port 19021
+T2530 002:655.557   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T2530 002:655.739   WEBSRV Webserver running on local port 19080
+T2530 002:655.878   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T2530 002:655.926   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V946\JLinkGUIServer.exe
+T2530 002:655.952   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V946\JLinkGUIServer.exe
+T2530 002:659.694   J-Link GUI Server info: "J-Link GUI server V9.46 "
+T2530 002:660.096 - 36.142ms returns "O.K."
+T2530 002:660.168 JLINK_GetEmuCaps()
+T2530 002:660.296 - 0.126ms returns 0xB9FF7BBF
+T2530 002:660.358 JLINK_TIF_GetAvailable(...)
+T2530 002:662.530 - 2.170ms 
+T2530 002:662.574 JLINK_SetErrorOutHandler(...)
+T2530 002:662.591 - 0.016ms 
+T2530 002:662.639 JLINK_ExecCommand("ProjectFile = "C:\Users\alex\Documents\Projet\Projet_Micro IMR1\Project\JLinkSettings.ini"", ...). 
+T2530 002:670.688 - 8.043ms returns 0x00
+T2530 002:670.859 JLINK_ExecCommand("Device = LPC1768", ...). 
+T2530 002:671.730   Device "LPC1768" selected.
+T2530 002:671.983 - 1.125ms returns 0x00
+T2530 002:672.004   ERROR: Unknown command
+T2530 002:672.018 JLINK_GetHardwareVersion()
+T2530 002:672.025 - 0.006ms returns 93000
+T2530 002:672.036 JLINK_GetDLLVersion()
+T2530 002:672.041 - 0.005ms returns 94600
+T2530 002:672.052 JLINK_GetOEMString(...)
+T2530 002:672.064 JLINK_GetDLLVersion()
+T2530 002:672.070 - 0.005ms returns 94600
+T2530 002:672.078 JLINK_GetCompileDateTime()
+T2530 002:672.084 - 0.005ms 
+T2530 002:672.103 JLINK_GetFirmwareString(...)
+T2530 002:672.110 - 0.006ms 
+T2530 002:672.120 JLINK_GetHardwareVersion()
+T2530 002:672.126 - 0.006ms returns 93000
+T2530 002:672.143 JLINK_GetSN()
+T2530 002:672.151 - 0.007ms returns 269306871
+T2530 002:672.163 JLINK_GetOEMString(...)
+T2530 002:672.186 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T2530 002:675.943 - 3.744ms returns 0x00
+T2530 002:675.995 JLINK_HasError()
+T2530 002:676.025 JLINK_SetSpeed(5000)
+T2530 002:676.047 - 0.022ms 
+T2530 002:676.763 JLINK_HasError()
+T2530 002:676.867 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T2530 002:676.898 - 0.030ms returns JLINKARM_RESET_TYPE_NORMAL
+T2530 002:676.929 JLINK_Reset()
+T2530 002:677.614 - 0.685ms 
+T2530 002:677.629 JLINK_GetIdData(pIdData)
+T2530 002:678.315 - 0.686ms 
+T2530 002:678.331 JLINK_GetIdData(pIdData)
+T2530 002:679.043 - 0.712ms 
+T2530 002:680.331 JLINK_GetFirmwareString(...)
+T2530 002:680.341 - 0.010ms 
+T2530 004:943.463 JLINK_Close()
+T2530 004:952.294 - 8.908ms
+T2530 004:952.378   
+T2530 004:952.396   Closed
