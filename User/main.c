@@ -55,6 +55,8 @@ int main(void)
 
     while(1) {
 
+        // voir pour déplacer des carré tel des obstacles
+
 
         // --- tactile : dessine un carre rouge la ou on touche l'ecran ---
         if (flagTouch)
