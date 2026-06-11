@@ -41,9 +41,8 @@ int main(void)
 
     int dernierAffiche = -1; // derniere valeur du chrono affichée
     
-    compteur1s = 0;
+    compteur1s = 0; // le compteur principal
     
-	// Init(); // init variables globales et pinsel pour IT => a faire
 
 	lcd_Initializtion();              // initialise les broches de l'ecran ET l'ecran LCD (a faire 1 seule fois)
     lcd_clear(White);
@@ -51,9 +50,29 @@ int main(void)
 	touch_init();                     // initialise la dalle tactile (a laisser seulement si on utilise le tactile)
 
     InitMemoire();                    // prepare le bus I2C0 et la memoire (broches + controleur)
+
+    // reprise du chrono depuis la memoire non-volatile (survit au reset)
+    LectureMemoire(2001, &aff_sec);   // secondes precedemment sauvegardees
+    LectureMemoire(2002, &aff_min);   // minutes precedemment sauvegardees
+    compteur1s = aff_min * 60 + aff_sec;   // on reprend le chrono la ou il s'etait arrete
+
     InitTimer();                      // demarre la base de temps (interruption toutes les 10 ms)
 
-    EcritureMemoire(2000,20);         // test : ecrit la valeur 20 a l'adresse 2000 de la memoire
+    // Horloge decorative (cadran de 12 carres noirs) dans la partie superieure
+    dessiner_horloge(120, 70);
+
+    // Affichage des 3 boutons en bas de l'ecran : PAUSE | LAP | RESET (70 px chacun)
+    dessiner_rect(5, 250, 70, 50, 2, 1, Black, Red);      // bouton PAUSE
+    n=sprintf(chaine,"PAUSE");
+    LCD_write_english_string(20,270,chaine,White,Red);
+
+    dessiner_rect(85, 250, 70, 50, 2, 1, Black, Green);   // bouton LAP
+    n=sprintf(chaine,"LAP");
+    LCD_write_english_string(108,270,chaine,White,Green);
+
+    dessiner_rect(165, 250, 70, 50, 2, 1, Black, Blue);   // bouton RESET
+    n=sprintf(chaine,"RESET");
+    LCD_write_english_string(180,270,chaine,White,Blue);
 
 
     
@@ -75,29 +94,48 @@ int main(void)
             LectureMemoire(2001, &aff_sec);
             LectureMemoire(2002, &aff_min);
             
-            // construction de la chaine
-            //n=sprintf(chaine,"Chrono en Secondes = %d", compteur1s);
-	        //LCD_write_english_string(10,10,chaine,Blue,White);
-            // Minutes
-            //n=sprintf(chaine,"Chrono en Minutes = %d", compteur1s/60);
-	        //LCD_write_english_string(10,40,chaine,Blue,White);
-            // Chrono
+        
             n=sprintf(chaine,"  %d : %d  ", aff_min, aff_sec);
-	        LCD_write_english_string(90,70,chaine,White,Blue);
+	        LCD_write_english_string(85,150,chaine,White,Blue);
 
-            n=sprintf(chaine,"Touch to save the time");
-	        LCD_write_english_string(35,100,chaine,White,Red);
+            // aiguille des secondes : un tour complet en 60 s
+            dessiner_aiguille(120, 70, compteur1s % 60);
         }
 
         if (flagTouch)
         {
-            flagTouch = 0;
 
+            // On réccupère les coordonnées :
+            int xaff, yaff;                 // coordonnees en pixels (declarations EN PREMIER, regle C90)
 
-            //LectureMemoire(2003, &lap1_sec); 
+            flagTouch = 0;                  // on consomme le drapeau
+            touch_read();                   // remplit les variables globales touch_x / touch_y
 
-            n=sprintf(chaine,"=>  %d : %d  ",  aff_min, aff_sec);
-	        LCD_write_english_string(90,150,chaine,White,Green);
+            // mise a l'echelle : repere tactile (brut) -> repere affichage (pixels)
+            // sur notre ecran, les deux axes vont dans le meme sens (pas d'inversion)
+            xaff = (touch_x - XT_MIN) * ECRAN_L / (XT_MAX - XT_MIN);
+            yaff = (touch_y - YT_MIN) * ECRAN_H / (YT_MAX - YT_MIN);
+            // xaff / yaff = point exact touche (en pixels) -> on le compare aux zones des boutons
+
+            // BOUTON PAUSE 
+            if (xaff > 5 && xaff < 75 && yaff > 250 && yaff < 300)
+            {
+                flagPause = !flagPause; // toggle du flag pause
+            }
+
+            // BOUTON LAP 
+            if (xaff > 85 && xaff < 155 && yaff > 250 && yaff < 300)
+            {
+                // Affichage du lap
+                n=sprintf(chaine,"LAP %d : %d   ", compteur1s/60, compteur1s%60);
+                LCD_write_english_string(35,200,chaine,White,Green);
+            }
+
+            // BOUTON RESET 
+            if (xaff > 165 && xaff < 235 && yaff > 250 && yaff < 300)
+            {
+                compteur1s = 0;   // remet le chrono a zero
+            }
 
         }
         

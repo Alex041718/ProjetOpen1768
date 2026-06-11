@@ -88,10 +88,13 @@ void TIMER0_IRQHandler() { // toute les 10 ms
 
 
 
-    if (compteur10ms >= 100) {       // 50 x 10 ms = 500 ms / ex 1000 �a sera tout les 10 secondes
+    if (compteur10ms >= 100) {       // Toutes els secondes
         compteur10ms = 0;//
         // chrono global par sec
-        compteur1s++;        
+        if (!flagPause) {
+            compteur1s++;
+        }
+                
     }
 
 

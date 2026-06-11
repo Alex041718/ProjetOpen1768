@@ -7,8 +7,9 @@
 extern char chaine[30]; // buffer pour l'affichage sur le LCD
 extern uint16_t touch_x, touch_y ;
 
-extern volatile int flagColor; 
+
 extern volatile int flagTouch;
+extern volatile int flagPause;
 
 extern volatile int compteur10ms ;
 extern volatile int compteur1s ;
