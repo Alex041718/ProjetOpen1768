@@ -34,7 +34,10 @@ int main(void)
 {
 	int n;                            // variable pour recuperer le retour de sprintf (longueur du texte)
 
-    uint8_t lap1;     
+    //uint8_t lap1_sec;    
+    //uint8_t lap1_min;
+    uint8_t aff_sec;  
+    uint8_t aff_min;
 
     int dernierAffiche = -1; // derniere valeur du chrono affichée
     
@@ -61,15 +64,25 @@ int main(void)
         if (compteur1s != dernierAffiche)
         {
             dernierAffiche = compteur1s;
+
+
+            // enregistrement en mémoire
+            EcritureMemoire(2001, compteur1s%60); // Secondes
+            EcritureMemoire(2002, compteur1s/60); // Minutes
+
+            // on recuppère pour afficher
+
+            LectureMemoire(2001, &aff_sec);
+            LectureMemoire(2002, &aff_min);
             
             // construction de la chaine
-            n=sprintf(chaine,"Chrono en Secondes = %d", compteur1s);
-	        LCD_write_english_string(10,10,chaine,Blue,White);
+            //n=sprintf(chaine,"Chrono en Secondes = %d", compteur1s);
+	        //LCD_write_english_string(10,10,chaine,Blue,White);
             // Minutes
-            n=sprintf(chaine,"Chrono en Minutes = %d", compteur1s/60);
-	        LCD_write_english_string(10,40,chaine,Blue,White);
+            //n=sprintf(chaine,"Chrono en Minutes = %d", compteur1s/60);
+	        //LCD_write_english_string(10,40,chaine,Blue,White);
             // Chrono
-            n=sprintf(chaine,"  %d : %d  ", compteur1s/60, compteur1s%60);
+            n=sprintf(chaine,"  %d : %d  ", aff_min, aff_sec);
 	        LCD_write_english_string(90,70,chaine,White,Blue);
 
             n=sprintf(chaine,"Touch to save the time");
@@ -79,9 +92,11 @@ int main(void)
         if (flagTouch)
         {
             flagTouch = 0;
-            EcritureMemoire(2000, compteur1s);
-            LectureMemoire(2000, &lap1); 
-            n=sprintf(chaine,"=>  %d : %d  ", lap1/60, lap1%60);
+
+
+            //LectureMemoire(2003, &lap1_sec); 
+
+            n=sprintf(chaine,"=>  %d : %d  ",  aff_min, aff_sec);
 	        LCD_write_english_string(90,150,chaine,White,Green);
 
         }

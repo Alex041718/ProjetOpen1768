@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Output\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Jun 05 18:09:51 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Jun 11 15:37:28 2026
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -873,7 +873,7 @@ Global Symbols
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Start
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_getNum
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LectureMemoire
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LectureMemoire
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EcritureMemoire
 </UL>
 
@@ -908,7 +908,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_getNum
 </UL>
 
-<P><STRONG><a name="[41]"></a>main</STRONG> (Thumb, 252 bytes, Stack size 16 bytes, main.o(.text))
+<P><STRONG><a name="[41]"></a>main</STRONG> (Thumb, 216 bytes, Stack size 16 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = main &rArr; InitTimer &rArr; TIM_Init &rArr; converUSecToVal &rArr; __aeabi_uldivmod
 </UL>
@@ -916,8 +916,8 @@ Global Symbols
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_init
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_Initializtion
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LectureMemoire
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LectureMemoire
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitMemoire
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EcritureMemoire
@@ -1077,10 +1077,10 @@ Global Symbols
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_data
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rw_data_prepare
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 </UL>
 
-<P><STRONG><a name="[ab]"></a>LCD_write_english_string</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, lcd_api.o(.text))
+<P><STRONG><a name="[ac]"></a>LCD_write_english_string</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, lcd_api.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = LCD_write_english_string &rArr; LCD_write_english &rArr; lcd_SetCursor &rArr; write_reg &rArr; write_cmd &rArr; wait_delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english
@@ -1127,7 +1127,7 @@ Global Symbols
 <P><STRONG><a name="[bf]"></a>touch_debug</STRONG> (Thumb, 298 bytes, Stack size 112 bytes, touch_panel.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WriteByte
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_write_english_string
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadValue
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClearValue
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetValue
@@ -1151,7 +1151,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>LectureMemoire</STRONG> (Thumb, 54 bytes, Stack size 56 bytes, memoire.o(.text))
+<P><STRONG><a name="[ab]"></a>LectureMemoire</STRONG> (Thumb, 54 bytes, Stack size 56 bytes, memoire.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = LectureMemoire &rArr; I2C_MasterTransferData &rArr; I2C_IntCmd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterTransferData
