@@ -14,6 +14,7 @@ volatile int flagTouch;
 
 
 volatile int compteur10ms ;
+volatile int compteur1s ;
 
 
 

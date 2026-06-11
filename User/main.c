@@ -32,58 +32,61 @@
 //===========================================================//
 int main(void)
 {
-	  int n;                            // variable pour recuperer le retour de sprintf (longueur du texte)
+	int n;                            // variable pour recuperer le retour de sprintf (longueur du texte)
 
-	  // Init(); // init variables globales et pinsel pour IT => a faire
+    uint8_t lap1;     
 
-	  lcd_Initializtion();              // initialise les broches de l'ecran ET l'ecran LCD (a faire 1 seule fois)
+    int dernierAffiche = -1; // derniere valeur du chrono affichée
+    
+    compteur1s = 0;
+    
+	// Init(); // init variables globales et pinsel pour IT => a faire
 
-		// --- petit exemple d'affichage : un texte et quelques carres de couleur ---
-	  n=sprintf(chaine,"Mon super texte      ");          // prepare le texte dans la variable globale "chaine"
-	  LCD_write_english_string (32,30,chaine,White,Blue); // affiche le texte (blanc sur fond bleu) en (32,30)
-	  //dessiner_rect(10,60,110,110,2,1,Black,Yellow);      // carre jaune, bord noir
-	  //dessiner_rect(120,60,110,110,2,1,Black,Green);      // carre vert
-	  //dessiner_rect(10,170,110,110,2,1,Black,Blue);       // carre bleu
-	  //dessiner_rect(120,170,110,110,2,1,Black,Red);     // carre rouge (desactive)
+	lcd_Initializtion();              // initialise les broches de l'ecran ET l'ecran LCD (a faire 1 seule fois)
+    lcd_clear(White);
 
-	  touch_init();                     // initialise la dalle tactile (a laisser seulement si on utilise le tactile)
+	touch_init();                     // initialise la dalle tactile (a laisser seulement si on utilise le tactile)
 
-        InitMemoire();                    // prepare le bus I2C0 et la memoire (broches + controleur)
-        InitTimer();                      // demarre la base de temps (interruption toutes les 10 ms)
+    InitMemoire();                    // prepare le bus I2C0 et la memoire (broches + controleur)
+    InitTimer();                      // demarre la base de temps (interruption toutes les 10 ms)
 
-        EcritureMemoire(2000,20);         // test : ecrit la valeur 20 a l'adresse 2000 de la memoire
+    EcritureMemoire(2000,20);         // test : ecrit la valeur 20 a l'adresse 2000 de la memoire
 
+
+    
     while(1) {
 
-        // voir pour déplacer des carré tel des obstacles
+        // affichage chronometre
 
+        if (compteur1s != dernierAffiche)
+        {
+            dernierAffiche = compteur1s;
+            
+            // construction de la chaine
+            n=sprintf(chaine,"Chrono en Secondes = %d", compteur1s);
+	        LCD_write_english_string(10,10,chaine,Blue,White);
+            // Minutes
+            n=sprintf(chaine,"Chrono en Minutes = %d", compteur1s/60);
+	        LCD_write_english_string(10,40,chaine,Blue,White);
+            // Chrono
+            n=sprintf(chaine,"  %d : %d  ", compteur1s/60, compteur1s%60);
+	        LCD_write_english_string(90,70,chaine,White,Blue);
 
-        // --- tactile : dessine un carre rouge la ou on touche l'ecran ---
+            n=sprintf(chaine,"Touch to save the time");
+	        LCD_write_english_string(35,100,chaine,White,Red);
+        }
+
         if (flagTouch)
         {
-            int xaff, yaff;                 // coordonnees en pixels (declarations EN PREMIER, regle C90)
+            flagTouch = 0;
+            EcritureMemoire(2000, compteur1s);
+            LectureMemoire(2000, &lap1); 
+            n=sprintf(chaine,"=>  %d : %d  ", lap1/60, lap1%60);
+	        LCD_write_english_string(90,150,chaine,White,Green);
 
-            flagTouch = 0;                  // on consomme le drapeau
-            touch_read();                   // remplit les variables globales touch_x / touch_y
-
-            // mise a l'echelle : repere tactile (brut) -> repere affichage (pixels)
-            // sur notre ecran, les deux axes vont dans le meme sens (pas d'inversion)
-            xaff = (touch_x - XT_MIN) * ECRAN_L / (XT_MAX - XT_MIN);
-            yaff = (touch_y - YT_MIN) * ECRAN_H / (YT_MAX - YT_MIN);
-
-            // recentrer le carre sur le point touche (sinon c'est son coin qui suit le doigt)
-            xaff = xaff - TAILLE/2;
-            yaff = yaff - TAILLE/2;
-
-            // rester dans l'ecran : on empeche le carre de deborder
-            if (xaff < 0) xaff = 0;
-            if (yaff < 0) yaff = 0;
-            if (xaff > ECRAN_L - TAILLE) xaff = ECRAN_L - TAILLE;
-            if (yaff > ECRAN_H - TAILLE) yaff = ECRAN_H - TAILLE;
-
-            lcd_clear(White);                                            // efface l'ancien dessin
-            dessiner_rect(xaff, yaff, TAILLE, TAILLE, 2, 1, Black, Red); // carre rouge a l'endroit touche
         }
+        
+
 
     }  ;                         // boucle infinie : le programme ne se termine jamais
 	// pour l'instant, le main fait juste quelques inits ... a vous d'ecrire le reste

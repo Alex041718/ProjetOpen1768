@@ -70,27 +70,31 @@ void InitTimer() {
 //-----------------------------------------------------------//
 void TIMER0_IRQHandler() { // toute les 10 ms
     // Ne dois jamais faire de tache longue, elle doit up un flag comme une vairbel globale ?
-
     static int dejaAppuye = 0;        // memorise l'etat precedent (declaration EN PREMIER, regle C90)
 
     compteur10ms++;                 // variable globale, +1 toutes les 10 ms
-
 
     //Touch
     // dans l'IRQ : ne lever le flag qu'au moment ou le doigt SE POSE
     
     if (TP_DOWN()) {
-        if (!dejaAppuye) flagTouch = 1;   // front : on vient juste de toucher
+        if (!dejaAppuye) {
+            flagTouch = 1;   // front : on vient juste de toucher
+        } 
         dejaAppuye = 1;
     } else {
         dejaAppuye = 0;               // doigt relache
     }
 
 
+
     if (compteur10ms >= 100) {       // 50 x 10 ms = 500 ms / ex 1000 �a sera tout les 10 secondes
-        compteur10ms = 0;
-        flagColor = !flagColor;       // 
+        compteur10ms = 0;//
+        // chrono global par sec
+        compteur1s++;        
     }
+
+
 
 	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT); // OBLIGATOIRE : efface le drapeau d'interruption,
 	                                            // sinon le processeur croit que l'interruption est encore active

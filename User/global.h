@@ -11,3 +11,4 @@ extern volatile int flagColor;
 extern volatile int flagTouch;
 
 extern volatile int compteur10ms ;
+extern volatile int compteur1s ;
